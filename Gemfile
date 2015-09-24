@@ -6,6 +6,9 @@ gem 'rails', '4.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use Twitter Bootstrap 3
+gem 'bootstrap-sass', '~> 3.3.5'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
