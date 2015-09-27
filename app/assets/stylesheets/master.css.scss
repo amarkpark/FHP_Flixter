@@ -1,1 +1,13 @@
 /* Flixter Master Style Sheet */
+
+
+.navbar {
+	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+	box-shadow: 0px 1px 3px #2a2a2a;
+}
+
+.navbar a.navbar-brand{
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+	color: orange;
+	// text-shadow: 0px 0px 2px #2a2a2a;
+}
