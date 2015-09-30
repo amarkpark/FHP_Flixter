@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6, .navbar {
 
 .frosty {
 	background:rgba(51,0,0, 0.6);
-	color: white;
+	color: #fff3e6;
 	border-radius: 6px;
 }
 
@@ -42,4 +42,9 @@ h1, h2, h3, h4, h5, h6, .navbar {
 	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 	font-weight: 200;
 	text-shadow: rgba(0,0,0,0.95) 1px 1px;
+}
+
+body {
+	background: url("spback.png");
+	font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
