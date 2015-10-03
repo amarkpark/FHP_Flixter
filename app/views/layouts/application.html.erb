@@ -8,7 +8,7 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<header>
+	<div id="wrap">
 		<nav class="navbar navbar-default navbar-static-top">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,45 +33,28 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-	</header>
 
-<% if notice.present? %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
+		<% if notice.present? %>
+		  <p class="alert alert-success"><%= notice %></p>
+		<% end %>
 
-<% if alert.present? %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+		<% if alert.present? %>
+		  <p class="alert alert-danger"><%= alert %></p>
+		<% end %>
 
-<%= yield %>
+		<%= yield %>
 
-	<footer>
-		<nav class="navbar navbar-inverse navbar-fixed-bottom">
-		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		    </div>
+	</div>
 
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li><a href="#">Link</a></li>
-		        <li><a href="#">Link</a></li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Link</a></li>
-		        <li><a href="#">Link</a></li>
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-	</footer>
+	<br class="clear" />
+
+	<div id="footer">
+		<div class="container">
+			<h4>Footer Here</h4>
+			<br />
+			<%= link_to "Link", '#' %>
+		</div>
+	</div>
 
 </body>
 </html>
