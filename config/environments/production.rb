@@ -1,6 +1,21 @@
 Flixter::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  # # Configuring ActionMailer for Mailgun on Heroku
+  # ActionMailer::Base.smtp_settings = {
+  # :port           => ENV['MAILGUN_SMTP_PORT'],
+  # :address        => ENV['MAILGUN_SMTP_SERVER'],
+  # :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  # :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  # :domain         => 'amp-fhp-nomster.heroku.com',
+  # :authentication => :plain,
+  # }
+  # ActionMailer::Base.delivery_method = :smtp
+
+  # # Support for Devise gem, Lesson 16
+  # config.action_mailer.default_url_options = { :host => 'amp-fhp-flixter.herokuapp.com' }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
