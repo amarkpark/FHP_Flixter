@@ -9,6 +9,10 @@
 	background-color: #fff3e6;
 }
 
+.navbar-default .navbar-nav > li > a {
+	color: #4d3939;
+}
+
 .navbar a.navbar-brand{
 	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 	color: #800;
@@ -72,4 +76,5 @@ h1, h2, h3, h4, h5, h6, .navbar {
 body {
 	background: url("spback.png");
 	font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #210808;
 }
