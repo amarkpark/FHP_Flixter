@@ -12,6 +12,9 @@ gem 'bootstrap-sass', '~> 3.3.5'
 # Use Simple Form for forms
 gem 'simple_form'
 
+# Adding Factory Girl for generating test data
+gem 'factory_girl_rails', '~> 4.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -1,0 +1,16 @@
+<!-- instructor new course page -->
+<br />
+<h2 style="text-align:center" class="pagetitle">Add A New Course</h2>
+<br />
+<div class="flixter-box col-xs-10 col-xs-offset-1">
+	<%= simple_form_for @course, :url => instructor_courses_path do |f| %>
+		<%= f.input :title %>
+		<%= f.input :description %>
+		<%= f.input :cost %>
+		<br />
+		<%= f.submit "Create", :class => 'btn btn-primary' %>
+		<br />
+	<% end %>
+	<br />
+</div>
+<br />
