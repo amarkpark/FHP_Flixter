@@ -12,6 +12,7 @@ FactoryGirl.define do
 	factory :course do
 		title "Brew Review"
 		description "Survey of brew techniques"
+		cost 0
 		association :user
 	end
 end
