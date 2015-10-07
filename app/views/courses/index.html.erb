@@ -1,0 +1,17 @@
+<!-- General Course Index -->
+<br class="clear" />
+<h2 style="text-align:center" class="pagetitle">Brew With Us</h2>
+<br />
+
+<% @courses.each do |course| %>
+	<div class="form-inputs flixter-box col-xs-10 col-xs-offset-1">
+		<h3 class="text-center"><%= course.title %></h3><br />
+		<div class="col-sm-8 col-xs-12">
+			<p><%= course.description %></p>
+		</div>
+		<div class="col-sm-4 col-xs-12">
+			<%= link_to 'Button', '#', :class => 'btn button-primary pull-right' %>
+		</div>
+	</div>
+	<br class="clear" />
+<% end %>

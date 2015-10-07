@@ -3,7 +3,7 @@
 	clear:both;
 }
 
-.alert {
+.alert, .notice {
 	margin: 0;
 }
 
@@ -62,6 +62,10 @@
 	// font-size: 36px;
 }
 
+h3 {
+	text-shadow: 0px 0px 1px #330000;
+}
+
 h1, h2, h3, h4, h5, h6, .navbar {
   margin:0;
 }
@@ -88,5 +92,5 @@ h1, h2, h3, h4, h5, h6, .navbar {
 body {
 	background: url("spback.png");
 	font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #210808;
+	color: #372020;  // formerly #210808
 }
