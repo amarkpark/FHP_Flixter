@@ -5,12 +5,12 @@
 
 <% @courses.each do |course| %>
 	<div class="form-inputs flixter-box col-xs-10 col-xs-offset-1">
-		<h3 class="text-center"><%= course.title %></h3><br />
+		<h3 class="text-center"><%= link_to course.title, course_path(course) %></h3><br />
 		<div class="col-sm-8 col-xs-12">
 			<p><%= course.description %></p>
 		</div>
 		<div class="col-sm-4 col-xs-12">
-			<%= link_to 'Button', '#', :class => 'btn button-primary pull-right' %>
+			<%= link_to 'More Info...', course_path(course), :class => 'btn button-primary pull-right' %>
 		</div>
 	</div>
 	<br class="clear" />
