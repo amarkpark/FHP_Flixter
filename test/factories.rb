@@ -1,6 +1,9 @@
 # factories.rb test data for FactoryGirl
 
-FactoryGirl.define do
+FactoryGirl.define do  factory :section do
+    
+  end
+
 	factory :user do
 		sequence :email do |n|
 			"usertest#{n}@testloopbackdomain.com"

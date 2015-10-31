@@ -3,7 +3,9 @@ Flixter::Application.routes.draw do
   root "static_pages#index"
   resources :courses, :only => [:index, :show]
   namespace :instructor do
-    resources :courses, :only => [:new, :create, :show]
+    resources :courses, :only => [:new, :create, :show] do
+      resources :sections, :only => [:new, :create]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

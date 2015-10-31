@@ -3,6 +3,35 @@
 <h2 style="text-align:center" class="pagetitle">Instructor Course Detail</h2>
 <br />
 <div class="flixter-box col-xs-10 col-xs-offset-1">
-	<h3><%= @course.title %></h3>
-	<p><%= @course.description %></p>
+	<h3 style="text-align:center">Photo Placeholder</h3>
+	<br />
+	<div class="col-xs-9">
+		<h3><%= @course.title %></h3>
+		<p><%= @course.description %></p>
+	</div>
+	<div class="col-xs-3">
+		<br />
+		<p>Cost placeholder</p>
+		<p>Duration placeholder</p>
+		<br />
+		<div class="text-center">
+			<%= link_to "Student Preview", course_path(@course), :class => "btn btn-success pull-right" %>
+		</div>
+		<br />
+		<br />
+		<div class="text-center">
+			<%= link_to "Add a new section...", new_instructor_course_section_path(@course), :class => "btn btn-success pull-right" %>
+		</div>
+	</div>
+	<br class="clear" />
+	<!-- I need to be able to order this list "sorting methodologies"? -->
+	<ul>
+		<% @course.sections.each do |section| %>
+			<li>
+				<%= section.title %>
+			</li>
+		<% end %>
+	</ul>
+	<br />
 </div>
+<br class="clear" />
