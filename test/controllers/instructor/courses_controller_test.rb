@@ -1,13 +1,17 @@
 require 'test_helper'
 
 class Instructor::CoursesControllerTest < ActionController::TestCase
+	test "add class requires authenticated user" do
+		user = FactoryGirl.create(:user)
+		get :new
+		assert_redirected_to new_user_session_path
+	end
+
 	test "show new course page" do
 		user = FactoryGirl.create(:user)
 		sign_in user
 		get :new
 		assert_response :success
-		# assert_redirected_to new_instructor_course_path
-		# WHY doesn't the redirect work?
 	end
 
 	test "create class success" do

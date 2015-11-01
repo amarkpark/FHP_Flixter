@@ -1,6 +1,27 @@
 require 'test_helper'
 
 class Instructor::SectionsControllerTest < ActionController::TestCase
+	test "add section requires authenticated user" do
+		user = FactoryGirl.create(:user)
+		course = FactoryGirl.create(:course, :user_id => user.id)
+		get :new, :course_id => course.id
+		assert_redirected_to new_user_session_path
+	end
+
+	test "add section requires course owner" do
+		user = FactoryGirl.create(:user)
+		user2 = FactoryGirl.create(:user)
+		sign_in user2
+		course = FactoryGirl.create(:course, :user_id => user.id)
+		get :new, :course_id => course.id
+		assert_response :unauthorized
+
+		assert_no_difference 'course.sections.count' do
+			post :create, :course_id => course.id, :section => { :title => "Week1" }
+		end
+		assert_response :unauthorized		
+	end	
+
 	test "show new sections page" do
 		user = FactoryGirl.create(:user)
 		sign_in user
