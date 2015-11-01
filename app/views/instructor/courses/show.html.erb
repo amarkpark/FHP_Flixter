@@ -15,21 +15,34 @@
 		<p>Duration placeholder</p>
 		<br />
 		<div class="text-center">
-			<%= link_to "Student Preview", course_path(@course), :class => "btn btn-success pull-right" %>
+			<%= link_to "Student Preview", course_path(@course), :class => "btn btn-success btn-sm" %>
 		</div>
 		<br />
-		<br />
 		<div class="text-center">
-			<%= link_to "Add a new section...", new_instructor_course_section_path(@course), :class => "btn btn-success pull-right" %>
+			<%= link_to "Add a new section...", new_instructor_course_section_path(@course), :class => "btn btn-success btn-sm" %>
 		</div>
 	</div>
 	<br class="clear" />
+	<br />
 	<!-- I need to be able to order this list "sorting methodologies"? -->
 	<ul>
 		<% @course.sections.each do |section| %>
 			<li>
 				<%= section.title %>
+				<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>
+				<!-- </div> -->
+				<ul>
+					<% section.lessons.each do |lesson| %>
+						<li>
+							<b><%= lesson.title %>
+							---
+							<%= lesson.subtitle %>
+						</li>
+					<% end%>
+				</ul>
+				<br class="clear" />
 			</li>
+			<br />
 		<% end %>
 	</ul>
 	<br />

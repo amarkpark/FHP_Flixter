@@ -1,8 +1,6 @@
 # factories.rb test data for FactoryGirl
 
-FactoryGirl.define do  factory :section do
-    
-  end
+FactoryGirl.define do  
 
 	factory :user do
 		sequence :email do |n|
@@ -18,4 +16,22 @@ FactoryGirl.define do  factory :section do
 		cost 0
 		association :user
 	end
+
+	factory :section do
+		title "Ancient Brews"
+		association :course
+	end
+
+	factory :lesson do
+		title "Boilers and Percolators"
+		association :section
+	end
+
+	# factory :complete_course do
+	# 	user = create(:user)
+	# 	course = create(:course, :user_id => user.id)
+	# 	section = create(:section, :course_id => course.id)
+	# 	lesson = create(:lesson, :section_id => section.id)
+	# end	
+	
 end
