@@ -21,6 +21,15 @@ gem 'sass-rails', '~> 4.0.0'
 # Adding Devise for password auth, version for Heroku fix
 gem 'devise', '>= 3.2.4'
 
+# Adding Gem to store sensitive data in an ENV variable
+gem 'figaro', '>= 1.0.0'
+
+# Adding fog gem for carrierwave <=> AWS S3 communications
+gem 'fog', '~> 1.3.1'
+
+# Adding Gem for Carrierwave for Image Uploads
+gem 'carrierwave'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

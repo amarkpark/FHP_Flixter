@@ -8,6 +8,9 @@
 		<%= f.input :description %>
 		<%= f.input :cost %>
 		<br />
+		<%= f.input :image, as: :file %>
+		<%= f.input :remote_image_url, label: 'or paste image URL' %>
+		<br />
 		<%= f.submit "Create", :class => 'btn btn-primary' %>
 		<br />
 	<% end %>
