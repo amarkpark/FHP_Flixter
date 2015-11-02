@@ -10,14 +10,35 @@
 			<%= number_to_currency @course.cost %>
 		</span>
 		<br />
-		<% if current_user == @course.user %>
+		<% if current_user && current_user == @course.user %>
 			<br />
 			<%= link_to 'Teacher Admin', instructor_course_path(@course), :class => 'btn btn-primary' %>
 		<% end %>
 	</div>
 
 	<div class="col-sm-8 col-xs-12">
-	<%= @course.description %>
+		<%= @course.description %>
 	</div>
+	<br class="clear" />
 	<br />
+	<div class="col-xs-12">
+		<% @course.sections.each do |section| %>
+			<div class="section section-box">
+				<h4><%= section.title %></h4>
+				<% section.lessons.each do |lesson| %>
+					<div class="col-xs-10 col-xs-offset-1 lesson lesson-box text-center">
+						<!-- <%= link_to lesson_path(lesson) do %> -->
+						<%= link_to lesson.title, lesson_path(lesson) %><br />
+						<hr />
+						<%= lesson.subtitle %>
+						<!-- <% end %> -->
+					</div>
+				<% end %>
+				<br class="clear" />
+			</div>
+			<br class="clear" />
+		<% end %>
+	</div>
+
+	<br class="clear" />
 </div>

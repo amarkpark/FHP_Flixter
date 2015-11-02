@@ -6,8 +6,8 @@
 	<h3 style="text-align:center">Photo Placeholder</h3>
 	<br />
 	<div class="col-xs-9">
-		<h3><%= @course.title %></h3>
-		<p><%= @course.description %></p>
+		<h3><%= current_course.title %></h3>
+		<p><%= current_course.description %></p>
 	</div>
 	<div class="col-xs-3">
 		<br />
@@ -15,18 +15,18 @@
 		<p>Duration placeholder</p>
 		<br />
 		<div class="text-center">
-			<%= link_to "Student Preview", course_path(@course), :class => "btn btn-success btn-sm" %>
+			<%= link_to "Student Preview", course_path(current_course), :class => "btn btn-success btn-sm" %>
 		</div>
 		<br />
 		<div class="text-center">
-			<%= link_to "Add a new section...", new_instructor_course_section_path(@course), :class => "btn btn-success btn-sm" %>
+			<%= link_to "Add a new section...", new_instructor_course_section_path(current_course), :class => "btn btn-success btn-sm" %>
 		</div>
 	</div>
 	<br class="clear" />
 	<br />
 	<!-- I need to be able to order this list "sorting methodologies"? -->
 	<ul>
-		<% @course.sections.each do |section| %>
+		<% current_course.sections.each do |section| %>
 			<li>
 				<%= section.title %>
 				<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>

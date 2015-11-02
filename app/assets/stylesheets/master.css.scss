@@ -49,11 +49,43 @@
   border: 1px solid; // #ccc;
   border-color: #ccc2b8 #b2aaa1 #b2aaa1 #ccc2b8;
   padding: 10px;
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 
 .flixter-box h2, .flixter-box h1, .flixter-box h3 {
   margin:10px;
+}
+
+.section-box {
+  -moz-box-shadow: inset 1px 1px 2px rgba(55,32,32, 0.6);
+  -webkit-box-shadow: inset 1px 1px 2px rgba(55,32,32, 0.6);
+  box-shadow: inset 1px 1px 2px rgba(55,32,32, 0.6);
+  background: rgba(204, 194, 194, 0.40);
+  border: 1px solid; // #ccc;
+  border-color: #ccc2b8 #b2aaa1 #b2aaa1 #ccc2b8;
+  padding: 10px;
+  // font-size: 1.25em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.lesson-box {
+  -moz-box-shadow: inset 1px 1px 2px rgba(55,32,32, 0.6);
+  -webkit-box-shadow: inset 1px 1px 2px rgba(55,32,32, 0.6);
+  box-shadow: inset 1px 1px 2px rgba(55,32,32, 0.6);
+  background: rgba(175, 165, 165, 0.40);
+  border: 1px solid; // #ccc;
+  border-color:  #b2aaa1 #ccc2b8 #ccc2b8 #b2aaa1;
+  padding: 10px;
+  // font-size: 1.25em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 3px;
+    background-image: linear-gradient(to right, rgba(136, 0, 0, 0), rgba(136, 0, 0, 0.75), rgba(136, 0, 0, 0));
 }
 
 .pagetitle {
@@ -63,7 +95,7 @@
 	// font-size: 36px;
 }
 
-h3, h3>a {
+h3, h3>a, .lesson-box a, .subtitle {
 	text-shadow: 0px 0px 1px #330000;
 	color: #372020;
 }
@@ -89,6 +121,18 @@ h1, h2, h3, h4, h5, h6, .navbar {
 	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 	font-weight: 200;
 	text-shadow: rgba(0,0,0,0.95) 1px 1px;
+}
+
+// .subtitle {
+// 	margin: 10px;
+// }
+
+h3 {
+	font-size: 28px;
+}
+
+h4 {
+	font-size: 24px;
 }
 
 body {

@@ -16,12 +16,12 @@ class Instructor::LessonsControllerTest < ActionController::TestCase
 		course = FactoryGirl.create(:course, :user_id => user.id)
 		section = FactoryGirl.create(:section, :course_id => course.id)
 		get :new, :section_id => section.id
-		assert_response :unauthorized
+		assert_redirected_to root_path
 
 		assert_no_difference 'section.lessons.count' do
 			post :create, :section_id => section.id, :lesson => { :title => "Boilers and Percolators" }
 		end
-		assert_response :unauthorized		
+		assert_redirected_to root_path
 	end
 	
 	test "show new lessons page" do

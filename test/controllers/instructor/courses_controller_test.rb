@@ -38,6 +38,15 @@ class Instructor::CoursesControllerTest < ActionController::TestCase
 		assert_response :success
 	end
 
+	test "course auth fail redirect" do
+		user = FactoryGirl.create(:user)
+		user2 = FactoryGirl.create(:user)
+		sign_in user2
+		course = FactoryGirl.create(:course, :user_id => user.id)
+		get :show, :id => course.id
+		assert_redirected_to root_path
+	end
+
 	test "data is valid" do
 		user = FactoryGirl.create(:user)
 		sign_in user

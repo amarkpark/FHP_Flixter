@@ -20,7 +20,9 @@ class Instructor::SectionsController < ApplicationController
 
 	def require_auth_for_current_course
 		if current_course.user != current_user
-			return render :text => "Unauthorized", :status => :unauthorized
+			# return render :text => "Unauthorized", :status => :unauthorized
+			#eventually change to redirect to dashboard
+			redirect_to root_path, flash: {alert: "Unauthorized"} 
 		end
 	end
 

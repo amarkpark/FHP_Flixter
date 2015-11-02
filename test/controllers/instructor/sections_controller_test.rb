@@ -14,12 +14,12 @@ class Instructor::SectionsControllerTest < ActionController::TestCase
 		sign_in user2
 		course = FactoryGirl.create(:course, :user_id => user.id)
 		get :new, :course_id => course.id
-		assert_response :unauthorized
+		assert_redirected_to root_path
 
 		assert_no_difference 'course.sections.count' do
 			post :create, :course_id => course.id, :section => { :title => "Week1" }
 		end
-		assert_response :unauthorized		
+		assert_redirected_to root_path		
 	end	
 
 	test "show new sections page" do
