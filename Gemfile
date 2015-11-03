@@ -30,6 +30,9 @@ gem 'fog', '~> 1.3.1'
 # Adding Gem for Carrierwave for Image Uploads
 gem 'carrierwave'
 
+# Adding MiniMagick wrapper gem for ImageMacick command line util
+gem 'mini_magick', '~> 4.3.1'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

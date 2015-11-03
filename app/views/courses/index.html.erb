@@ -10,7 +10,8 @@
 			<%= image_tag course.image, :class => 'img-responsive' %>
 			<br />
 		<% end %>
-		<h3 class="text-center"><%= link_to course.title, course_path(course) %></h3><br />
+		<h3 class="text-center"><%= link_to course.title, course_path(course) %></h3>
+		<div class="col-xs-4 col-xs-offset-4"><hr /></div><br class="clear" />
 		<div class="col-sm-8 col-xs-12">
 			<p><%= course.description %></p>
 		</div>
