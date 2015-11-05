@@ -29,7 +29,7 @@
 			<div class="section section-box">
 				<h4><%= section.title %></h4>
 				<% section.lessons.each do |lesson| %>
-					<div class="col-xs-10 col-xs-offset-1 lesson lesson-box text-center">
+					<div class="col-xs-10 col-xs-offset-1 lesson lesson-box text-center" data-no-turbolink>
 						<!-- <%= link_to lesson_path(lesson) do %> -->
 						<%= link_to lesson.title, lesson_path(lesson) %><br />
 						<hr />
