@@ -28,8 +28,9 @@
 		<% @course.sections.each do |section| %>
 			<div class="section section-box">
 				<h4><%= section.title %></h4>
+				<br />
 				<% section.lessons.each do |lesson| %>
-					<div class="col-xs-10 col-xs-offset-1 lesson lesson-box text-center" data-no-turbolink>
+					<div class="col-xs-12 col-sm-6 lesson lesson-box text-center" data-no-turbolink>
 						<!-- <%= link_to lesson_path(lesson) do %> -->
 						<%= link_to lesson.title, lesson_path(lesson) %><br />
 						<hr />
