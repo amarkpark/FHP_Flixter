@@ -8,6 +8,11 @@
 		<%= f.input :title %>
 		<%= f.input :subtitle %>
 		<br />
+		<%= f.input :video, as: :file %>
+		<%= f.input :remote_video_url, label: 'or paste video url' %>
+		<!-- can I make this either "upload" or "embed" ...? -->
+		<br />
 		<%= f.submit "Add lesson", :class => 'btn btn-primary pull-right' %>
+		<br />
 	<% end %>
 </div>

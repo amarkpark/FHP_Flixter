@@ -27,26 +27,27 @@
 	<br class="clear" />
 	<br />
 	<!-- I need to be able to order this list "sorting methodologies"? -->
-	<ul>
+
+	<div class="col-xs-12">
 		<% current_course.sections.each do |section| %>
-			<li>
-				<%= section.title %>
+			<div class="section section-box">
+				<h4 style="display:inline"><%= section.title %></h4>
 				<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>
-				<!-- </div> -->
-				<ul>
-					<% section.lessons.each do |lesson| %>
-						<li>
-							<b><%= lesson.title %>
-							---
-							<%= lesson.subtitle %>
-						</li>
-					<% end%>
-				</ul>
+				</li>
+				<% section.lessons.each do |lesson| %>
+					<div class="col-xs-10 col-xs-offset-1 lesson lesson-box text-center">
+						<!-- <%= link_to lesson_path(lesson) do %> -->
+						<%= link_to lesson.title, lesson_path(lesson) %><br />
+						<hr />
+						<%= lesson.subtitle %>
+						<!-- <% end %> -->
+					</div>
+				<% end %>
 				<br class="clear" />
-			</li>
-			<br />
+			</div>
+			<br class="clear" />
 		<% end %>
-	</ul>
+	</div>
 	<br />
 </div>
 <br class="clear" />
