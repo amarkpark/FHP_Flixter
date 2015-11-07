@@ -50,6 +50,7 @@
   border-color: #ccc2b8 #b2aaa1 #b2aaa1 #ccc2b8;
   padding: 10px;
   font-size: 1.5em;
+  border-radius: 6px;
 }
 
 .flixter-box h2, .flixter-box h1, .flixter-box h3 {
@@ -63,6 +64,7 @@
   background: rgba(204, 194, 194, 0.40);
   border: 1px solid; // #ccc;
   border-color: #ccc2b8 #b2aaa1 #b2aaa1 #ccc2b8;
+  border-radius: 6px;
   padding: 10px;
   // font-size: 1.25em;
   margin-top: 10px;
@@ -75,11 +77,19 @@
   box-shadow: inset 1px 1px 2px rgba(55,32,32, 0.6);
   background: rgba(175, 165, 165, 0.40);
   border: 1px solid; // #ccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
   border-color:  #b2aaa1 #ccc2b8 #ccc2b8 #b2aaa1;
-  padding: 10px;
+  padding: 20px;
   // font-size: 1.25em;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.section-box > [class*="col-"] {
+    background-clip: padding-box;
+    border: 10px solid transparent;
 }
 
 hr {

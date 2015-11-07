@@ -31,9 +31,9 @@ FactoryGirl.define do  factory :enrollment do
 	end
 
 	# factory :complete_course do
-	# 	user = create(:user)
-	# 	course = create(:course, :user_id => user.id)
-	# 	section = create(:section, :course_id => course.id)
+	# 	testuser = build(:user)
+	# 	course = build(:course, :user_id => testuser.id)
+	# 	section = build(:section, :course_id => course.id)
 	# 	lesson = create(:lesson, :section_id => section.id)
 	# end	
 	

@@ -23,6 +23,7 @@ class Instructor::CoursesControllerTest < ActionController::TestCase
 				:title => "Cupping",
 				:description => "Proper tasting methodology",
 				:cost => 0
+				# :image => fixture_file_upload('/assets/alphatest.png', 'image/png')
 			}
 		end
 		course = Course.last
