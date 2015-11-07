@@ -18,7 +18,11 @@
 			<%= link_to 'Teacher Admin', instructor_course_path(@course), :class => 'btn btn-primary' %>
 		<% end %>
 		<br />
-		<%= link_to 'Enroll Now!', course_enrollments_path(@course), :class => 'btn btn-primary' %>
+		<% if current_user && current_user.enrolled_in?(@course) %>
+			<h3 class= "label label-info">You Are Enrolled!</h2>
+		<% else %>
+			<span data-no-turbolink> <%= link_to 'Enroll Now!', course_enrollments_path(@course), :class => 'btn btn-primary', :method => :post %></span>
+		<% end %>
 	</div>
 
 	<div class="col-sm-8 col-xs-12">
@@ -33,11 +37,9 @@
 				<br />
 				<% section.lessons.each do |lesson| %>
 					<div class="col-xs-12 col-sm-6 lesson lesson-box text-center" data-no-turbolink>
-						<!-- <%= link_to lesson_path(lesson) do %> -->
 						<%= link_to lesson.title, lesson_path(lesson) %><br />
 						<hr />
 						<%= lesson.subtitle %>
-						<!-- <% end %> -->
 					</div>
 				<% end %>
 				<br class="clear" />

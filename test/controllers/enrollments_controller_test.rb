@@ -6,16 +6,12 @@ class EnrollmentsControllerTest < ActionController::TestCase
 		user2 = FactoryGirl.create(:user)
 		sign_in user2
 		course = FactoryGirl.create(:course, :user_id => user.id)
-		# assert_difference ['user2.enrollments.count', 'course.enrollments.count'], 1 do
-		assert_difference 'user2.enrollments.count' do
-			post :create, :user_id => user2.id, :course_id => course.id # ActiveRecord::UnknownAttributeError: unknown attribute: course
-			# post :create, :user_id => user2.id # ActionController::UrlGenerationError
-			# post :create, :course_id => course.id # ActiveRecord::UnknownAttributeError
-			# post :create, :course => course # ActionController::UrlGenerationError
+		assert_difference ['user2.enrollments.count', 'course.enrollments.count'], 1 do
+			post :create, :user_id => user2.id, :course_id => course.id
 		end
-		assert_response :success
 		enrolled = Enrollment.last
 		assert_equal user2, enrolled.user
 		assert_equal course, enrolled.course
+		assert_redirected_to course_path(enrolled.course)
 	end
 end
