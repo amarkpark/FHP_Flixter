@@ -13,7 +13,7 @@ class Instructor::LessonsController < ApplicationController
 
 	private
 
-	helper_method :current_section
+	helper_method :current_section # Making this a helper_method allows it to be USED in the VIEW
 	def current_section
 		@current_section ||= Section.find(params[:section_id])
 	end

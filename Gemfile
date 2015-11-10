@@ -33,6 +33,9 @@ gem 'carrierwave'
 # Adding MiniMagick wrapper gem for ImageMacick command line util
 gem 'mini_magick', '~> 4.3.1'
 
+# Adding Stripe gem for CC transactions
+gem 'stripe'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
