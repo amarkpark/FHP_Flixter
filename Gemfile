@@ -36,6 +36,9 @@ gem 'mini_magick', '~> 4.3.1'
 # Adding Stripe gem for CC transactions
 gem 'stripe'
 
+# Adding ranked-model gem for drag-n-drop reordering of records
+gem 'ranked-model'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

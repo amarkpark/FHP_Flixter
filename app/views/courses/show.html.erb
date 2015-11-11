@@ -45,7 +45,7 @@
 			<div class="section section-box">
 				<h4><%= section.title %></h4>
 				<br />
-				<% section.lessons.each do |lesson| %>
+				<% section.lessons.rank(:row_order).each do |lesson| %>
 					<div class="col-xs-12 col-sm-6 lesson lesson-box text-center" data-no-turbolink>
 						<%= link_to lesson.title, lesson_path(lesson) %><br />
 						<hr />
