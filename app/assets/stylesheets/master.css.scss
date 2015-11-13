@@ -87,10 +87,10 @@
   margin-bottom: 10px;
 }
 
-.section-box > [class*="col-"] {
-    background-clip: padding-box;
-    border: 10px solid transparent;
-}
+// .section-box > [class*="col-"] {
+//     background-clip: padding-box;
+//     border: 10px solid transparent;
+// }
 
 hr {
     border: 0;
@@ -110,9 +110,13 @@ label {
 	// font-size: 36px;
 }
 
-h3, h3>a, .lesson-box a, .subtitle {
+h3, h3 > a, .lesson-box a, .subtitle {
 	text-shadow: 0px 0px 1px #330000;
 	color: #372020;
+}
+
+.lesson-box a:hover {
+  text-shadow: 1px 1px 2px #330000;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar {
@@ -140,6 +144,10 @@ h1, h2, h3, h4, h5, h6, .navbar {
 
 .img-responsive {
     margin: 0 auto;
+}
+
+ul.lsortlist.ui-sortable {
+  padding: 0px;
 }
 
 // .subtitle {

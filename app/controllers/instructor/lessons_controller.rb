@@ -1,6 +1,7 @@
 class Instructor::LessonsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :require_auth_for_current_section
+	before_action :require_auth_for_current_section, :only => [:new, :create]
+	before_action :require_auth_for_current_lesson, :only => [:update]
 
 	def new
 		@lesson = Lesson.new
@@ -11,7 +12,16 @@ class Instructor::LessonsController < ApplicationController
 		redirect_to instructor_course_path(current_section.course)
 	end
 
+	def update
+		current_lesson.update_attributes(lesson_params)
+		render :text => 'updated!'
+	end
+
 	private
+
+	def current_lesson
+		@current_lesson ||= Lesson.find(params[:id])
+	end
 
 	helper_method :current_section # Making this a helper_method allows it to be USED in the VIEW
 	def current_section
@@ -26,7 +36,13 @@ class Instructor::LessonsController < ApplicationController
 		end
 	end
 
+	def require_auth_for_current_lesson
+		if current_lesson.course.user != current_user
+			render :text => 'Unauthorized', :status => :unauthorized
+		end
+	end
+
 	def lesson_params
-		params.require(:lesson).permit(:title, :subtitle, :video, :remote_video_url)
+		params.require(:lesson).permit(:title, :subtitle, :video, :remote_video_url, :row_order_position)
 	end
 end
