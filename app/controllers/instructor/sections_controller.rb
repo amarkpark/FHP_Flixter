@@ -37,7 +37,8 @@ class Instructor::SectionsController < ApplicationController
 	end
 
 	def require_auth_for_current_section
-		if current_course.user != current_user
+		# needs to use same variable "current_section" as action it validates!
+		if current_section.course.user != current_user
 			render :text => 'Unauthorized', :status => :unauthorized
 		end
 	end

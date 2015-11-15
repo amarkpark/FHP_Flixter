@@ -19,8 +19,10 @@
 		<% end %>
 		<br />
 		<% if current_user && current_user.enrolled_in?(@course) %>
+			<br />
 			<h3 class= "label label-info">You Are Enrolled!</h2>
 		<% elsif current_user %>
+			<br />
 			<% if @course.free? %>
 				<span data-no-turbolink><%= link_to 'Enroll Now!', course_enrollments_path(@course), :class => 'btn btn-primary', :method => :post %></span>
 			<% else %>
@@ -54,7 +56,6 @@
 				<% end %>
 				<br class="clear" />
 			</div>
-			<br class="clear" />
 		<% end %>
 	</div>
 
