@@ -41,7 +41,7 @@
 	<br class="clear" />
 	<br />
 	<div class="col-xs-12">
-		<% @course.sections.each do |section| %>
+		<% @course.sections.rank(:row_order).each do |section| %>
 			<div class="section section-box">
 				<h4><%= section.title %></h4>
 				<br />

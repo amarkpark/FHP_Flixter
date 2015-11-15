@@ -29,27 +29,29 @@
 	<!-- I need to be able to order this list "sorting methodologies"? -->
 
 	<div class="col-xs-12">
-		<% current_course.sections.each do |section| %>
-			<div class="section section-box">
-				<h4 style="display:inline" class="pull-left"><%= section.title %></h4>
-				<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>
-				</li>
-				<br />
-				<ul class="lsortlist">
-					<% section.lessons.rank(:row_order).each do |lesson| %>
-						<div class="col-xs-12 col-sm-6 lesson lesson-box text-center" data-no-turbolink data-update-url=<%= instructor_lesson_path(lesson) %>>
-							<!-- <%= link_to lesson_path(lesson) do %> -->
-							<%= link_to lesson.title, lesson_path(lesson) %><br />
-							<hr />
-							<%= lesson.subtitle %>
-							<!-- <% end %> -->
-						</div>
-					<% end %>
-				</ul>
+		<ul class="ssortlist">
+			<% current_course.sections.rank(:row_order).each do |section| %>
+				<div class="section section-box" data-update-url=<%= instructor_section_path(section) %>>
+					<h4 style="display:inline" class="pull-left"><%= section.title %></h4>
+					<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>
+					</li>
+					<br />
+					<ul class="lsortlist">
+						<% section.lessons.rank(:row_order).each do |lesson| %>
+							<div class="col-xs-12 col-sm-6 lesson lesson-box text-center" data-no-turbolink data-update-url=<%= instructor_lesson_path(lesson) %>>
+								<!-- <%= link_to lesson_path(lesson) do %> -->
+								<%= link_to lesson.title, lesson_path(lesson) %><br />
+								<hr />
+								<%= lesson.subtitle %>
+								<!-- <% end %> -->
+							</div>
+						<% end %>
+					</ul>
+					<br class="clear" />
+				</div>
 				<br class="clear" />
-			</div>
-			<br class="clear" />
-		<% end %>
+			<% end %>
+		</ul>
 	</div>
 	<br />
 </div>
@@ -58,6 +60,18 @@
 <script>
 $ (function() {
 	$ ('.lsortlist').sortable({
+		update: function(event, ui) {
+			$.ajax({
+				type: 'PUT',
+				url: ui.item.data('update-url'),
+				dataType: 'json',
+				data: { lesson: { row_order_position: ui.item.index() }}
+			});
+		}
+	});
+});
+$ (function() {
+	$ ('.ssortlist').sortable({
 		update: function(event, ui) {
 			$.ajax({
 				type: 'PUT',
