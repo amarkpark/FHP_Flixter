@@ -4,27 +4,28 @@
 <br />
 <div class="flixter-box col-xs-10 col-xs-offset-1">
 	<!-- <h3 style="text-align:center"><%= image_tag current_course.image %></h3> -->
+	<h3 style="text-align:center"><%= current_course.title %></h3>
 	<br />
 	<%= image_tag current_course.image, :class => 'img-responsive' %>
 	<br />
-	<div class="col-xs-9">
-		<h3><%= current_course.title %></h3>
+	<div class="col-xs-12 col-sm-3 coursebox">
+		<p>Cost: <%= number_to_currency current_course.cost %></p>
+		<p>Duration placeholder</p>
+		<p>By <%= current_course.user %></p>
+		<div class="text-center">
+			<%= link_to "Student Preview", course_path(current_course), :class => "btn btn-success btn-sm pull-left" %>
+		</div>
+		<br />
+	</div>
+	<div class="col-xs-12 col-sm-9">
 		<p><%= current_course.description %></p>
 	</div>
-	<div class="col-xs-3">
-		<br />
-		<%= number_to_currency current_course.cost %>
-		<p>Duration placeholder</p>
-		<br />
-		<div class="text-center">
-			<%= link_to "Student Preview", course_path(current_course), :class => "btn btn-success btn-sm" %>
-		</div>
-		<br />
-		<div class="text-center">
-			<%= link_to "Add a new section...", new_instructor_course_section_path(current_course), :class => "btn btn-success btn-sm" %>
-		</div>
-	</div>
 	<br class="clear" />
+	<br />
+	<hr />
+	<div class="text-center">
+		<%= link_to "Add a new section...", new_instructor_course_section_path(current_course), :class => "btn btn-success btn-lg" %>
+	</div>
 	<br />
 	<!-- I need to be able to order this list "sorting methodologies"? -->
 
@@ -32,22 +33,25 @@
 		<ul class="ssortlist">
 			<% current_course.sections.rank(:row_order).each do |section| %>
 				<div class="section section-box" data-no-turbolink data-supdate-url="<%= instructor_section_path(section) %>">
-					<h4 style="display:inline" class="pull-left"><%= section.title %></h4>
-					<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>
-					</li>
-					<br />
-					<ul class="lsortlist">
-						<% section.lessons.rank(:row_order).each do |lesson| %>
-							<div class="col-xs-12 col-sm-6 lesson lesson-box text-center" data-no-turbolink data-lupdate-url="<%= instructor_lesson_path(lesson) %>">
-								<!-- <%= link_to lesson_path(lesson) do %> -->
-								<%= link_to lesson.title, lesson_path(lesson) %><br />
-								<hr />
-								<%= lesson.subtitle %>
-								<!-- <% end %> -->
-							</div>
-						<% end %>
+					<li>
+						<span class="glyphicon glyphicon-option-vertical" title="Drag to reorder"></span>
+						<h4 style="display:inline" ><%= section.title %></h4>
+						<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>
 						<br class="clear" />
-					</ul>
+						<ul class="lsortlist">
+							<% section.lessons.rank(:row_order).each do |lesson| %>
+								<div class="col-xs-12 col-sm-6 lesson lesson-box text-center" data-no-turbolink data-lupdate-url="<%= instructor_lesson_path(lesson) %>">
+									<li>
+										<span class="glyphicon glyphicon-option-vertical pull-left" title="Drag to reorder"></span>
+										<%= link_to lesson.title, lesson_path(lesson) %><br />
+										<hr />
+										<%= lesson.subtitle %>
+									</li>
+								</div>
+							<% end %>
+							<br class="clear" />
+						</ul>
+					</li>
 				</div>
 			<% end %>
 			<br class="clear" />
