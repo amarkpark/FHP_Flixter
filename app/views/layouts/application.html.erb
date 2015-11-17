@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Flixter</title>
+	<title>Brew-U</title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
@@ -32,6 +32,7 @@
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		      	<% if user_signed_in? %>
+		      		<li><%= link_to 'My Dashboard', dashboard_path %></li>
 		      		<li><%= link_to destroy_user_session_path, :method => :delete do %>
 		      			Log Out
 		      			<span><small>(<%= current_user.email %>)</small></span>

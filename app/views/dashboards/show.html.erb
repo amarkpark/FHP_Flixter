@@ -1,0 +1,55 @@
+<!-- 20151116 Dashboard -->
+<br />
+<h2 style="text-align:center" class="pagetitle">My Dashboard</h2>
+<br />
+
+<div class="flixter-box col-xs-10 col-xs-offset-1">
+	<h1>What I'm Learning</h1>
+	<hr />
+	<% current_user.enrolled_courses.each do |course| %>
+		<h3 class="text-center" title="Click for Details">
+			<%= link_to course.title, course_path(course) %>
+		</h3>
+		<%if course.image.present? %>
+			<br />
+			<%= image_tag course.image, :class => 'img-responsive' %>
+			<br />
+		<% end %>
+		<div class="col-xs-12 col-sm-9">
+			<p><%= course.description %></p>
+		</div>
+		<div class="col-xs-12 col-sm-3 text-center">
+			<%= link_to "More Info...", course_path(course), :class => 'btn btn-primary' %>
+		</div>
+		<% if course != current_user.enrolled_courses.last %>
+			<div class="col-xs-6 col-xs-offset-3"><hr /></div><br class="clear" />
+		<% end %>
+	<% end %>
+</div>
+<br class="clear" />
+
+<br />
+<div class="flixter-box col-xs-10 col-xs-offset-1">
+	<h1>What I'm Teaching</h1>
+	<hr />
+	<% current_user.courses.each do |course| %>
+		<h3 class="text-center" title="Click for Admin Page">
+			<%= link_to course.title, instructor_course_path(course) %>
+		</h3>
+		<%if course.image.present? %>
+			<br />
+			<%= image_tag course.image, :class => 'img-responsive' %>
+			<br />
+		<% end %>
+		<div class="col-xs-12 col-sm-9">
+			<p><%= course.description %></p>
+		</div>
+		<div class="col-xs-12 col-sm-3 text-center">
+			<%= link_to "Admin", instructor_course_path(course), :class => 'btn btn-primary' %>
+		</div>
+		<% if course != current_user.courses.last %>
+			<div class="col-xs-6 col-xs-offset-3"><hr /></div><br class="clear" />
+		<% end %>
+	<% end %>
+</div>
+<br class="clear" />
