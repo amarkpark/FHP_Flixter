@@ -24,7 +24,9 @@
 	<br />
 	<hr />
 	<div class="text-center">
-		<%= link_to "Add a new section...", new_instructor_course_section_path(current_course), :class => "btn btn-success btn-lg" %>
+<!-- 		<%= link_to "Add a new section...", new_instructor_course_section_path(current_course), :class => "btn btn-success btn-lg" %> -->
+		<!-- Bootstrap Button trigger modal -->
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#NewSectionModal">Add a new section...</button>
 	</div>
 	<br />
 	<!-- I need to be able to order this list "sorting methodologies"? -->
@@ -86,3 +88,24 @@ $ (function() {
 });
 </script>
 
+<!-- Modal -->
+<div class="modal fade" id="NewSectionModal" tabindex="-1" role="dialog" aria-labelledby="NewSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="NewSectionModalLabel">Add A New Section to <%= current_course.title %></h4>
+      </div>
+      <%= simple_form_for @section, :url => instructor_course_sections_path(current_course) do |f| %>
+      	<div class="modal-body">
+			<%= f.input :title %>
+      	</div>
+      	<div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+	        <%= f.submit "Add section", :class => 'btn btn-primary pull-right' %>
+      	</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
