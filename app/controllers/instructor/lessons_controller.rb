@@ -3,6 +3,7 @@ class Instructor::LessonsController < ApplicationController
 	before_action :require_auth_for_current_section, :only => [:new, :create]
 	before_action :require_auth_for_current_lesson, :only => [:update]
 
+# 20151118 Dear FHP reviewer: please see notes in new.html.erb for why "new" is still here.
 	def new
 		@lesson = Lesson.new
 	end

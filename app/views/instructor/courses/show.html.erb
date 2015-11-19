@@ -3,7 +3,6 @@
 <h2 style="text-align:center" class="pagetitle">Instructor Course Detail</h2>
 <br />
 <div class="flixter-box col-xs-10 col-xs-offset-1">
-	<!-- <h3 style="text-align:center"><%= image_tag current_course.image %></h3> -->
 	<h3 style="text-align:center"><%= current_course.title %></h3>
 	<br />
 	<%= image_tag current_course.image, :class => 'img-responsive' %>
@@ -24,12 +23,10 @@
 	<br />
 	<hr />
 	<div class="text-center">
-<!-- 		<%= link_to "Add a new section...", new_instructor_course_section_path(current_course), :class => "btn btn-success btn-lg" %> -->
 		<!-- Bootstrap Button trigger modal -->
 		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#NewSectionModal">Add a new section...</button>
 	</div>
 	<br />
-	<!-- I need to be able to order this list "sorting methodologies"? -->
 
 	<div class="col-xs-12">
 		<ul class="ssortlist">
@@ -38,7 +35,8 @@
 					<li>
 						<span class="glyphicon glyphicon-option-vertical" title="Drag to reorder"></span>
 						<h4 style="display:inline" ><%= section.title %></h4>
-						<%= link_to "Add a new lesson...", new_instructor_section_lesson_path(section), :class => "btn btn-success btn-xs pull-right" %>
+						<!-- Button trigger New Lesson Modal -->
+						<button type="button" class="btn btn-primary btn-xs pull-right new-lesson-button" data-toggle="modal" data-target="#NewLessonModal" data-lesson-url="<%= instructor_section_lessons_path(section) %>">Add a new lesson...</button>
 						<br class="clear" />
 						<ul class="lsortlist">
 							<% section.lessons.rank(:row_order).each do |lesson| %>
@@ -65,6 +63,10 @@
 
 <script>
 $ (function() {
+	$ ('.new-lesson-button').click( function(event) {
+		var lessonUrl = $(event.target).data('lesson-url');
+		$('#newLessonForm').attr('action', lessonUrl);
+	});
 	$ ('.lsortlist').sortable({
 		update: function(event, ui) {
 			$.ajax({
@@ -88,7 +90,7 @@ $ (function() {
 });
 </script>
 
-<!-- Modal -->
+<!-- New Section Modal -->
 <div class="modal fade" id="NewSectionModal" tabindex="-1" role="dialog" aria-labelledby="NewSectionModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -108,4 +110,27 @@ $ (function() {
     </div>
   </div>
 </div>
-<!-- End Modal -->
+<!-- End New Section Modal -->
+
+<!-- New Lesson Modal -->
+<div class="modal fade" id="NewLessonModal" tabindex="-1" role="dialog" aria-labelledby="NewLessonModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="NewLessonModalLabel">Add A New Lesson to <%= current_course.title %></h4>
+      </div>
+      <%= simple_form_for @lesson, :url => "#", :html => {:id => 'newLessonForm'} do |f| %>
+	      <div class="modal-body">
+	        <%= f.input :title %>
+	        <%= f.input :subtitle %>
+	        <%= f.input :video, as: :file %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <%= f.submit "Add lesson", :class => 'btn btn-primary pull-right' %>
+	      </div>
+	  <% end %>
+    </div>
+  </div>
+</div>
