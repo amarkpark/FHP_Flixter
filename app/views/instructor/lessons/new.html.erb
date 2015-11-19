@@ -1,5 +1,10 @@
 <!-- 20151031 new lessons form page new.html.erb -->
 
+<!-- 20151118 Dear FHP reviewer: I'm going to leave this page intact post-modal 
+so that I can experiment with the auto_html gem for embedding remote videos 
+on youtube et al since carrierwave doesn't handle that the way it handles 
+images with remote_image_url option -->
+
 <br />
 <h2 style="text-align:center" class="pagetitle">Add A New Lesson to <%= current_section.title %></h2>
 <br />
@@ -9,7 +14,7 @@
 		<%= f.input :subtitle %>
 		<br />
 		<%= f.input :video, as: :file %>
-		<%= f.input :remote_video_url, label: 'or paste video url' %>
+		<!-- <%= f.input :remote_video_url, label: 'or paste video url' %> -->
 		<!-- can I make this either "upload" or "embed" ...? -->
 		<br />
 		<%= f.submit "Add lesson", :class => 'btn btn-primary pull-right' %>
