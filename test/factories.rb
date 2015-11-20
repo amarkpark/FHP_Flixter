@@ -25,8 +25,15 @@ FactoryGirl.define do  factory :enrollment do
 		association :course
 	end
 
+	# factory :lesson do
+	# 	title "Boilers and Percolators"
+	# 	association :section
+	# end
+
 	factory :lesson do
-		title "Boilers and Percolators"
+		sequence :title do |n|
+			"Boilers and Percolators Part: #{n}"
+		end
 		association :section
 	end
 

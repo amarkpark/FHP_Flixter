@@ -3,7 +3,8 @@ class Instructor::LessonsController < ApplicationController
 	before_action :require_auth_for_current_section, :only => [:new, :create]
 	before_action :require_auth_for_current_lesson, :only => [:update]
 
-# 20151118 Dear FHP reviewer: please see notes in new.html.erb for why "new" is still here.
+# 20151118 Dear FHP reviewer:
+# Please see notes in new.html.erb for why "new" is still here.
 	def new
 		@lesson = Lesson.new
 	end
@@ -31,8 +32,6 @@ class Instructor::LessonsController < ApplicationController
 
 	def require_auth_for_current_section
 		if current_section.course.user != current_user
-			# return render flash[:alert] = "Unauthorized", :status => :unauthorized
-			#eventually change to redirect to dashboard
 			redirect_to root_path, flash: {alert: "Unauthorized"} 
 		end
 	end

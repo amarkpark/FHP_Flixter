@@ -4,13 +4,27 @@
 <div class="col-xs-4 col-xs-offset-4"><hr /></div><br class="clear" />
 <h4 class="text-center subtitle"><%= current_lesson.subtitle %></h4>
 <div class="col-xs-4 col-xs-offset-4"><hr /></div><br class="clear" />
-
+<br />
 
 <div class="flixter-box col-xs-10 col-xs-offset-1">
-	<video id="MY_VIDEO_1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
-	preload="auto" width="auto" height="auto" poster="/assets/black.jpg"
-	data-setup="{}">
-	<source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
-	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-	</video>
+	<% if current_lesson.video.present? %>
+		<video id="MY_VIDEO_1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls
+		preload="auto" width="auto" height="auto" poster="/assets/black.jpg"
+		data-setup="{}">
+		<source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
+		<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+		</video>
+	<% else %>
+		<%= image_tag 'oops.jpg', class: 'img-responsive' %>
+	<% end %>
 </div>
+<br class="clear" />
+<br />
+<!-- <div class="col-xs-10 col-xs-offset-1"> -->
+<% if current_lesson.next_lesson.present? %>
+	<p class="text-center"><%= link_to lesson_path(current_lesson.next_lesson), :class => "btn btn-default btn-xl" do %>
+		Next Lesson &nbsp;
+		<span class="glyphicon glyphicon-forward"></span>
+	<% end %></p>
+<% end %>
+<br class="clear" />
