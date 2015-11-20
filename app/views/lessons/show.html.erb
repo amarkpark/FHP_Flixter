@@ -26,5 +26,7 @@
 		Next Lesson &nbsp;
 		<span class="glyphicon glyphicon-forward"></span>
 	<% end %></p>
+<% else %>
+	<p class="text-center"><%= link_to 'Return to Course', course_path(current_lesson.course), :class => "btn btn-default btn-xl" %></p>
 <% end %>
 <br class="clear" />
