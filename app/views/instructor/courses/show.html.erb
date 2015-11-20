@@ -4,13 +4,15 @@
 <br />
 <div class="flixter-box col-xs-10 col-xs-offset-1">
 	<h3 style="text-align:center"><%= current_course.title %></h3>
+	<% if current_course.image.present? %>
+		<br />
+		<%= image_tag current_course.image, :class => 'img-responsive' %>
+	<% end %>
 	<br />
-	<%= image_tag current_course.image, :class => 'img-responsive' %>
-	<br />
-	<div class="col-xs-12 col-sm-3 coursebox">
+	<div class="col-xs-12 col-sm-3">
 		<p>Cost: <%= number_to_currency current_course.cost %></p>
-		<p>Duration placeholder</p>
-		<p>By <%= current_course.user %></p>
+<!-- 		<p>Duration placeholder</p>
+		<p>By <%= current_course.user %></p> -->
 		<div class="text-center">
 			<%= link_to "Student Preview", course_path(current_course), :class => "btn btn-success btn-sm pull-left" %>
 		</div>

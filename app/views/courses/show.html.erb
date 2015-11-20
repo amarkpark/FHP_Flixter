@@ -3,8 +3,10 @@
 <h2 style="text-align:center" class="pagetitle">Course Details</h2>
 <br />
 <div class="flixter-box col-xs-10 col-xs-offset-1">
-	<br />
-	<%= image_tag @course.image, :class => 'img-responsive' %>
+	<% if @course.image.present? %>
+		<br />
+		<%= image_tag @course.image, :class => 'img-responsive' %>
+	<% end %>
 	<br />
 	<h3 class="text-center"><%= @course.title %></h3>
 	<br />
@@ -20,7 +22,7 @@
 		<br />
 		<% if current_user && current_user.enrolled_in?(@course) %>
 			<br />
-			<h3 class= "label label-info">You Are Enrolled!</h2>
+			<span class="label label-info">You Are Enrolled!</span>
 		<% elsif current_user %>
 			<br />
 			<% if @course.free? %>

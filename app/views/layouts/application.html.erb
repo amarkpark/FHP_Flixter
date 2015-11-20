@@ -61,9 +61,50 @@
 
 	<div id="footer">
 		<div class="container">
-			<h4>Teachers</h4>
-			<br />
-			<%= link_to 'Teach a Course', new_instructor_course_path %>
+			<div class="col-xs-6 col-sm-3">
+				<h4>Teachers</h4>
+				<br />
+				<%= link_to 'Teach a Course', new_instructor_course_path %>
+				<br />
+				<%= link_to 'Go To Dashboard', dashboard_path %>
+				<br />
+			</div>
+			<div class="col-xs-6 col-sm-3">
+				<h4>About</h4>
+				<br />
+				<%= link_to 'Team', '#' %>
+				<br />
+				<%= link_to 'Careers', '#' %>
+				<br />
+				<%= link_to 'Privacy Policy', '#' %>
+				<br />
+			</div>
+			<div class="col-sm-3 extra">
+				<h4>Contact</h4>
+				<br class="extra"/>
+<!-- 				amarkpark@gmail.com
+				<br />
+				123 Easy Street
+				<br />
+				Springfield, IL 65432
+				<br /> -->
+				<a href="mailto:amarkpark@gmail.com?subject=Brew-U"><img src="/assets/Aquicon-Email.png" class="smpng" /></a>
+			</div>
+			<div class="col-xs-12 col-sm-3 text-center social">
+				<h4>Social</h4>
+				<br />
+				<a href="mailto:amarkpark@gmail.com?subject=Brew-U"><img src="/assets/Aquicon-Email.png" class="smpng mobilecontact" /></a>
+				<%= link_to 'http://github.com/amarkpark', :target => "_blank" do %>
+					<%= image_tag 'Aquicon-Github.png', :class => 'smpng' %>
+				<% end %>
+				<%= link_to 'https://plus.google.com/u/0/107492875773893304752/posts', :target => "_blank" do %>
+					<%= image_tag 'Aquicon-GooglePlus.png', :class => 'smpng' %>
+				<% end %>
+				<%= link_to 'https://twitter.com/amarkpark', :target => "_blank" do %>
+					<%= image_tag 'Aquicon-Twitter.png', :class => 'smpng' %>
+				<% end %>
+				<br />
+			</div>
 		</div>
 	</div>
 
