@@ -179,7 +179,13 @@ h1, h2, h3, h4, h5, h6, .navbar {
 }
 
 .img-responsive {
-    margin: 0 auto;
+  margin: 0 auto;
+}
+
+.imgrow {
+  min-height: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 ul.lsortlist.ui-sortable {
